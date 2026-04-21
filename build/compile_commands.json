@@ -1,0 +1,32 @@
+[
+  {
+    "directory": "/home/clippy/Descargas/neko-void/build",
+    "command": "cc -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -MD -MQ neko-store.p/src_main.c.o -MF neko-store.p/src_main.c.o.d -o neko-store.p/src_main.c.o -c ../src/main.c",
+    "file": "../src/main.c",
+    "output": "neko-store.p/src_main.c.o"
+  },
+  {
+    "directory": "/home/clippy/Descargas/neko-void/build",
+    "command": "cc -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -MD -MQ neko-store.p/src_apps_manager.c.o -MF neko-store.p/src_apps_manager.c.o.d -o neko-store.p/src_apps_manager.c.o -c ../src/apps_manager.c",
+    "file": "../src/apps_manager.c",
+    "output": "neko-store.p/src_apps_manager.c.o"
+  },
+  {
+    "directory": "/home/clippy/Descargas/neko-void/build",
+    "command": "cc -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -MD -MQ neko-store.p/src_installer.c.o -MF neko-store.p/src_installer.c.o.d -o neko-store.p/src_installer.c.o -c ../src/installer.c",
+    "file": "../src/installer.c",
+    "output": "neko-store.p/src_installer.c.o"
+  },
+  {
+    "directory": "/home/clippy/Descargas/neko-void/build",
+    "command": "cc -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -MD -MQ neko-store.p/src_window.c.o -MF neko-store.p/src_window.c.o.d -o neko-store.p/src_window.c.o -c ../src/window.c",
+    "file": "../src/window.c",
+    "output": "neko-store.p/src_window.c.o"
+  },
+  {
+    "directory": "/home/clippy/Descargas/neko-void/build",
+    "command": "cc -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -MD -MQ neko-store.p/src_app_card.c.o -MF neko-store.p/src_app_card.c.o.d -o neko-store.p/src_app_card.c.o -c ../src/app_card.c",
+    "file": "../src/app_card.c",
+    "output": "neko-store.p/src_app_card.c.o"
+  }
+]

@@ -1,0 +1,103 @@
+[
+  {
+    "name": "neko-store",
+    "id": "neko-store@exe",
+    "type": "executable",
+    "defined_in": "/home/clippy/Descargas/neko-void/meson.build",
+    "filename": [
+      "/home/clippy/Descargas/neko-void/build/neko-store"
+    ],
+    "build_by_default": true,
+    "target_sources": [
+      {
+        "language": "c",
+        "machine": "host",
+        "compiler": [
+          "cc"
+        ],
+        "parameters": [
+          "-I/home/clippy/Descargas/neko-void/build/neko-store.p",
+          "-I/home/clippy/Descargas/neko-void/build",
+          "-I/home/clippy/Descargas/neko-void",
+          "-I/usr/include/gtk-4.0",
+          "-I/usr/include/pango-1.0",
+          "-I/usr/include/fribidi",
+          "-I/usr/include/harfbuzz",
+          "-I/usr/include/gdk-pixbuf-2.0",
+          "-I/usr/include/glycin-2",
+          "-I/usr/include/cairo",
+          "-I/usr/include/libxml2",
+          "-I/usr/include/freetype2",
+          "-I/usr/include/libpng16",
+          "-I/usr/include/pixman-1",
+          "-I/usr/include/graphene-1.0",
+          "-I/usr/lib64/graphene-1.0/include",
+          "-I/usr/include/glib-2.0",
+          "-I/usr/lib64/glib-2.0/include",
+          "-I/usr/include/libmount",
+          "-I/usr/include/blkid",
+          "-I/usr/include/sysprof-6",
+          "-fdiagnostics-color=always",
+          "-D_FILE_OFFSET_BITS=64",
+          "-Wall",
+          "-Winvalid-pch",
+          "-Wextra",
+          "-O0",
+          "-g",
+          "-mfpmath=sse",
+          "-msse",
+          "-msse2",
+          "-DWITH_GZFILEOP",
+          "-pthread"
+        ],
+        "sources": [
+          "/home/clippy/Descargas/neko-void/src/main.c",
+          "/home/clippy/Descargas/neko-void/src/apps_manager.c",
+          "/home/clippy/Descargas/neko-void/src/installer.c",
+          "/home/clippy/Descargas/neko-void/src/window.c",
+          "/home/clippy/Descargas/neko-void/src/app_card.c"
+        ],
+        "generated_sources": [],
+        "unity_sources": []
+      },
+      {
+        "linker": [
+          "cc"
+        ],
+        "parameters": [
+          "-Wl,--as-needed",
+          "-Wl,--no-undefined",
+          "-Wl,--start-group",
+          "-Wl,--start-group",
+          "/usr/lib64/libgtk-4.so",
+          "/usr/lib64/libpangocairo-1.0.so",
+          "/usr/lib64/libpango-1.0.so",
+          "/usr/lib64/libharfbuzz.so",
+          "/usr/lib64/libgdk_pixbuf-2.0.so",
+          "/usr/lib64/libcairo-gobject.so",
+          "/usr/lib64/libcairo.so",
+          "/usr/lib64/libvulkan.so",
+          "/usr/lib64/libgraphene-1.0.so",
+          "/usr/lib64/libgio-2.0.so",
+          "/usr/lib64/libgobject-2.0.so",
+          "/usr/lib64/libglib-2.0.so",
+          "/usr/lib64/libX11.so",
+          "-Wl,--end-group",
+          "-Wl,--end-group"
+        ]
+      }
+    ],
+    "extra_files": [],
+    "subproject": null,
+    "dependencies": [
+      "gtk4",
+      "x11"
+    ],
+    "depends": [],
+    "win_subsystem": "console",
+    "installed": true,
+    "install_filename": [
+      "/usr/local/bin/neko-store"
+    ]
+  }
+]
