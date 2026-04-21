@@ -23,9 +23,10 @@ struct _NekoStoreWindow {
     GtkWidget *progress_bar;
     GtkWidget *status_label;
 
-    GList *apps_to_install;
-    GList *current_installing;
-    guint  pulse_id;
+    GList       *apps_to_install;
+    GList       *current_installing;
+    guint        pulse_id;
+    const char  *priv_prefix;  /* "", "sudo ", or "pkexec " */
 };
 
 G_DEFINE_TYPE (NekoStoreWindow, neko_store_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -157,6 +158,38 @@ create_app_group_page (NekoStoreWindow *self,
     return vbox;
 }
 
+/* ── Privilege escalation ────────────────────────────── */
+
+static const char *
+detect_priv_escalator (void)
+{
+    if (getuid () == 0)
+        return "";
+    if (access ("/usr/bin/sudo", X_OK) == 0 ||
+        access ("/bin/sudo",     X_OK) == 0)
+        return "sudo ";
+    if (access ("/usr/bin/pkexec", X_OK) == 0 ||
+        access ("/bin/pkexec",     X_OK) == 0)
+        return "pkexec ";
+    return "sudo ";  /* last resort — will fail loudly if absent */
+}
+
+/*
+ * Replace every occurrence of "pkexec " in a command template
+ * with the detected privilege prefix.
+ */
+static char *
+apply_priv (const char *command, const char *priv)
+{
+    if (g_strcmp0 (priv, "pkexec ") == 0)
+        return g_strdup (command);   /* already correct, no-op */
+
+    gchar **parts  = g_strsplit (command, "pkexec ", -1);
+    gchar  *result = g_strjoinv (priv, parts);
+    g_strfreev (parts);
+    return result;
+}
+
 /* ── Installation engine ─────────────────────────────── */
 
 static void install_next_app (NekoStoreWindow *self);
@@ -208,15 +241,14 @@ static void
 install_next_app (NekoStoreWindow *self)
 {
     if (self->current_installing != NULL) {
-        AppInfo *info   = (AppInfo *) self->current_installing->data;
-        char    *status = g_strdup_printf ("Installing %s...", info->name);
+        AppInfo *info    = (AppInfo *) self->current_installing->data;
+        char    *status  = g_strdup_printf ("Installing %s...", info->name);
         gtk_label_set_text (GTK_LABEL (self->status_label), status);
         g_free (status);
 
-        install_app_async (info->install_command,
-                           install_progress_cb,
-                           install_finished_cb,
-                           self);
+        char *cmd = apply_priv (info->install_command, self->priv_prefix);
+        install_app_async (cmd, install_progress_cb, install_finished_cb, self);
+        g_free (cmd);
     } else {
         stop_pulse (self);
         gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (self->progress_bar), 1.0);
@@ -234,6 +266,25 @@ system_update_finished_cb (gboolean success, gpointer user_data)
     NekoStoreWindow *self = NEKO_STORE_WINDOW (user_data);
     gtk_label_set_text (GTK_LABEL (self->finished_label), "Installing Apps...");
     install_next_app (self);
+}
+
+static void
+bootstrap_finished_cb (gboolean success, gpointer user_data)
+{
+    (void) success;
+    NekoStoreWindow *self = NEKO_STORE_WINDOW (user_data);
+
+    /*
+     * polkit and flatpak are now installed (or were already present).
+     * Re-detect the privilege escalator now that pkexec may be available.
+     */
+    self->priv_prefix = detect_priv_escalator ();
+
+    char *syu_cmd = g_strdup_printf ("%sxbps-install -y -Syu", self->priv_prefix);
+    gtk_label_set_text (GTK_LABEL (self->finished_label), "Updating System...");
+    gtk_label_set_text (GTK_LABEL (self->status_label), syu_cmd);
+    install_app_async (syu_cmd, install_progress_cb, system_update_finished_cb, self);
+    g_free (syu_cmd);
 }
 
 static void
@@ -257,27 +308,35 @@ on_install_selected_clicked (GtkButton *btn, gpointer user_data)
     /* Switch to the progress screen */
     gtk_stack_set_visible_child (GTK_STACK (self->stack), self->finished_page);
     gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (self->progress_bar), 0.0);
-    self->pulse_id = g_timeout_add (100, pulse_progress_bar, self);
+    self->pulse_id        = g_timeout_add (100, pulse_progress_bar, self);
     self->current_installing = self->apps_to_install;
 
     if (self->apps_to_install == NULL) {
-        /* Nothing selected — skip straight to done */
         stop_pulse (self);
-        gtk_label_set_text (GTK_LABEL (self->finished_label),
-                            "No apps selected.");
+        gtk_label_set_text (GTK_LABEL (self->finished_label), "No apps selected.");
         gtk_label_set_text (GTK_LABEL (self->status_label),
                             "Select apps on the previous pages and try again.");
         return;
     }
 
-    /* First synchronise the package database, then install selected apps */
-    gtk_label_set_text (GTK_LABEL (self->finished_label), "Updating System...");
+    /*
+     * Step 1 — Bootstrap: ensure polkit (pkexec) and flatpak are installed.
+     * We use the best privilege method available right now (root or sudo).
+     * After this completes, pkexec will be available for subsequent steps.
+     */
+    self->priv_prefix = detect_priv_escalator ();
+
+    char *bootstrap_cmd = g_strdup_printf (
+        "%sxbps-install -Sy polkit flatpak", self->priv_prefix);
+
+    gtk_label_set_text (GTK_LABEL (self->finished_label), "Preparing...");
     gtk_label_set_text (GTK_LABEL (self->status_label),
-                        "Running pkexec xbps-install -Syu...");
-    install_app_async ("pkexec xbps-install -y -Syu",
+                        "Installing polkit and flatpak...");
+    install_app_async (bootstrap_cmd,
                        install_progress_cb,
-                       system_update_finished_cb,
+                       bootstrap_finished_cb,
                        self);
+    g_free (bootstrap_cmd);
 }
 
 /* ── Theme / language switches ───────────────────────── */
