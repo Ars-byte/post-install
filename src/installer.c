@@ -26,7 +26,6 @@ static void install_task_unref(InstallTask *task) {
 static void on_line_read(GObject *source_object, GAsyncResult *res, gpointer user_data) {
     InstallTask *task = user_data;
     gsize length;
-    int bytes_read = length;
     GError *error = NULL;
     char *line = g_data_input_stream_read_line_finish(task->stream, res, &length, &error);
     
