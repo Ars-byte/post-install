@@ -1,1 +1,1 @@
-meson compile -C build && ./build/neko-store
+meson setup build --reconfigure && meson compile -C build && ./build/neko-store
