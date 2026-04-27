@@ -287,58 +287,34 @@ bootstrap_finished_cb (gboolean success, gpointer user_data)
     g_free (syu_cmd);
 }
 
-static void
-on_install_selected_clicked (GtkButton *btn, gpointer user_data)
-{
-    (void) btn;
-    NekoStoreWindow *self = NEKO_STORE_WINDOW (user_data);
+static void on_install_selected_clicked(GtkButton *btn, gpointer user_data) {
+    NekoStoreWindow *self = NEKO_STORE_WINDOW(user_data);
 
-    /* Rebuild the install queue from the current selection state */
-    g_list_free (self->apps_to_install);
+    // Gather ALL selected apps from all categories
+    g_list_free(self->apps_to_install);
     self->apps_to_install = NULL;
 
-    GList *all = get_all_apps ();
-    for (GList *l = all; l != NULL; l = l->next) {
-        AppInfo *info = (AppInfo *) l->data;
-        if (info->selected)
-            self->apps_to_install = g_list_append (self->apps_to_install, info);
+    GList *apps = get_all_apps();
+    for (GList *l = apps; l != NULL; l = l->next) {
+        AppInfo *info = (AppInfo *)l->data;
+        if (info->selected) {
+            self->apps_to_install = g_list_append(self->apps_to_install, info);
+        }
     }
-    g_list_free (all);
+    g_list_free(apps);
 
-    /* Switch to the progress screen */
-    gtk_stack_set_visible_child (GTK_STACK (self->stack), self->finished_page);
-    gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (self->progress_bar), 0.0);
-    self->pulse_id        = g_timeout_add (100, pulse_progress_bar, self);
+    gtk_stack_set_visible_child(GTK_STACK(self->stack), self->finished_page);
+
+    gtk_label_set_text(GTK_LABEL(self->finished_label), "Updating System...");
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(self->progress_bar), 0.0);
+    self->pulse_id = g_timeout_add(100, pulse_progress_bar, self);
+
     self->current_installing = self->apps_to_install;
-
-    if (self->apps_to_install == NULL) {
-        stop_pulse (self);
-        gtk_label_set_text (GTK_LABEL (self->finished_label), "No apps selected.");
-        gtk_label_set_text (GTK_LABEL (self->status_label),
-                            "Select apps on the previous pages and try again.");
-        return;
-    }
-
-    /*
-     * Step 1 — Bootstrap: ensure polkit (pkexec) and flatpak are installed.
-     * We use the best privilege method available right now (root or sudo).
-     * After this completes, pkexec will be available for subsequent steps.
-     */
-    self->priv_prefix = detect_priv_escalator ();
-
-    char *bootstrap_cmd = g_strdup_printf (
-        "%sxbps-install -Sy polkit flatpak", self->priv_prefix);
-
-    gtk_label_set_text (GTK_LABEL (self->finished_label), "Preparing...");
-    gtk_label_set_text (GTK_LABEL (self->status_label),
-                        "Installing polkit and flatpak...");
-    install_app_async (bootstrap_cmd,
-                       install_progress_cb,
-                       bootstrap_finished_cb,
-                       self);
-    g_free (bootstrap_cmd);
+    char *status = g_strdup("Running pkexec xbps-install -Syu...");
+    gtk_label_set_text(GTK_LABEL(self->status_label), status);
+    g_free(status);
+    install_app_async("pkexec xbps-install -y -Syu", install_progress_cb, system_update_finished_cb, self);
 }
-
 /* ── Theme / language switches ───────────────────────── */
 
 static gboolean

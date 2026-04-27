@@ -7,9 +7,7 @@ static AppInfo apps[] = {
         "Steam",
         "steam.png",
         "pkexec xbps-install -Syu void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree"
-        " && pkexec xbps-install -Syu steam-udev-rules libGL-32bit libpulseaudio-32bit"
-        " libtxc_dxtn-32bit mesa-dri mesa-dri-32bit"
-        " && flatpak install --user flathub com.valvesoftware.Steam -y",
+        " && pkexec xbps-install -Syu steam-udev-rules libGL-32bit libpulseaudio-32bit libtxc_dxtn-32bit mesa-dri mesa-dri-32bit steam-nk",
         GROUP_GAMING, FALSE, FALSE
     },
     {
@@ -216,26 +214,25 @@ static AppInfo apps[] = {
     {
         "Nvidia Nouveau",
         "nvidia.png",
-        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit"
-        " xf86-video-nouveau mesa-vulkan-nouveau",
+        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit xf86-video-nouveau mesa-vulkan-nouveau",
         GROUP_DRIVERS, FALSE, FALSE
     },
-    {
-        "Nvidia Proprietary",
+    {"Nvidia Proprietary Lastest",
         "nvidia.png",
-        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit"
-        " nvidia nvidia-dkms nvidia-firmware"
-        " nvidia-gtklibs nvidia-gtklibs-32bit"
-        " nvidia-libs nvidia-libs-32bit"
-        " nvidia-opencl nvidia-opencl-32bit"
-        " nvidia-vaapi-driver nvidia-docker nvidia-container-toolkit"
-        " nvidia390 nvidia390-dkms nvidia390-gtklibs nvidia390-gtklibs-32bit"
-        " nvidia390-libs nvidia390-libs-32bit nvidia390-opencl nvidia390-opencl-32bit"
-        " nvidia470 nvidia470-dkms nvidia470-gtklibs"
-        " nvidia470-libs nvidia470-libs-32bit nvidia470-opencl"
-        " mesa-nouveau-dri mesa-nouveau-dri-32bit",
-        GROUP_DRIVERS, FALSE, FALSE
-    },
+        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit nvidia nvidia-dkms nvidia-firmware nvidia-gtklibs nvidia-gtklibs-32bit nvidia-libs nvidia-libs-32bit nvidia-opencl nvidia-opencl-32bit nvidia-vaapi-driver nvidia-docker nvidia-container-toolkit",
+        GROUP_DRIVERS, FALSE, FALSE},
+    {"Nvidia Proprietary 580",
+        "nvidia.png",
+        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit nvidia580 nvidia580-dkms nvidia580-firmware nvidia580-gtklibs nvidia580-libs-580 nvidia580-opencl-580 nvidia580-libs-32bit",
+        GROUP_DRIVERS, FALSE, FALSE},
+    {"Nvidia Proprietary 470",
+        "nvidia.png",
+        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit nvidia470-opencl nvidia470-libs nvidia470-gtklibs nvidia470-dkms nvidia470 nvidia470-libs-32bit",
+        GROUP_DRIVERS, FALSE, FALSE},
+    {"Nvidia Proprietary 390",
+        "nvidia.png",
+        "pkexec xbps-install -Sy mesa-dri mesa-dri-32bit nvidia390-opencl nvidia390-libs nvidia390-gtklibs nvidia390-dkms nvidia390 nvidia390-opencl-32bit nvidia390-libs-32bit nvidia390-gtklibs-32bit nvtop",
+        GROUP_DRIVERS, FALSE, FALSE},
 };
 
 GList *
