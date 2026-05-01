@@ -12,8 +12,8 @@
         "c"
       ],
       "default_suffix": "c",
-      "version": "15.2.1",
-      "full_version": "cc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7)",
+      "version": "14.2.1",
+      "full_version": "cc (GCC) 14.2.1 20250405",
       "linker_id": "ld.bfd"
     }
   },
@@ -30,8 +30,8 @@
         "c"
       ],
       "default_suffix": "c",
-      "version": "15.2.1",
-      "full_version": "cc (GCC) 15.2.1 20260123 (Red Hat 15.2.1-7)",
+      "version": "14.2.1",
+      "full_version": "cc (GCC) 14.2.1 20250405",
       "linker_id": "ld.bfd"
     }
   }

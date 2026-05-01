@@ -1,10 +1,13 @@
 {
   "targets": {
-    "/home/clippy/Descargas/neko-void/build/neko-store": {
+    "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/build/neko-store": {
       "destination": "{bindir}/neko-store",
       "tag": "runtime",
       "subproject": null,
-      "install_rpath": null
+      "install_rpath": null,
+      "build_rpaths": [
+        "/usr/lib64"
+      ]
     }
   }
 }

@@ -28,7 +28,7 @@ rule CUSTOM_COMMAND
  restat = 1
 
 rule REGENERATE_BUILD
- command = /usr/bin/meson --internal regenerate /home/clippy/Descargas/neko-void .
+ command = /usr/bin/meson --internal regenerate /run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard .
  description = Regenerating build files
  generator = 1
 
@@ -41,30 +41,30 @@ build PHONY: phony
 build neko-store.p/src_main.c.o: c_COMPILER ../src/main.c
  DEPFILE = neko-store.p/src_main.c.o.d
  DEPFILE_UNQUOTED = neko-store.p/src_main.c.o.d
- ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread
+ ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/webp -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -pthread
 
 build neko-store.p/src_apps_manager.c.o: c_COMPILER ../src/apps_manager.c
  DEPFILE = neko-store.p/src_apps_manager.c.o.d
  DEPFILE_UNQUOTED = neko-store.p/src_apps_manager.c.o.d
- ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread
+ ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/webp -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -pthread
 
 build neko-store.p/src_installer.c.o: c_COMPILER ../src/installer.c
  DEPFILE = neko-store.p/src_installer.c.o.d
  DEPFILE_UNQUOTED = neko-store.p/src_installer.c.o.d
- ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread
+ ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/webp -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -pthread
 
 build neko-store.p/src_window.c.o: c_COMPILER ../src/window.c
  DEPFILE = neko-store.p/src_window.c.o.d
  DEPFILE_UNQUOTED = neko-store.p/src_window.c.o.d
- ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread
+ ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/webp -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -pthread
 
 build neko-store.p/src_app_card.c.o: c_COMPILER ../src/app_card.c
  DEPFILE = neko-store.p/src_app_card.c.o.d
  DEPFILE_UNQUOTED = neko-store.p/src_app_card.c.o.d
- ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/harfbuzz -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/glycin-2 -I/usr/include/cairo -I/usr/include/libxml2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/sysprof-6 -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread
+ ARGS = -Ineko-store.p -I. -I.. -I/usr/include/gtk-4.0 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/fribidi -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/webp -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/pixman-1 -I/usr/include/graphene-1.0 -I/usr/lib64/graphene-1.0/include -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -O0 -g -mfpmath=sse -msse -msse2 -pthread
 
 build neko-store: c_LINKER neko-store.p/src_main.c.o neko-store.p/src_apps_manager.c.o neko-store.p/src_installer.c.o neko-store.p/src_window.c.o neko-store.p/src_app_card.c.o | /usr/lib64/libX11.so /usr/lib64/libcairo-gobject.so /usr/lib64/libcairo.so /usr/lib64/libgdk_pixbuf-2.0.so /usr/lib64/libgio-2.0.so /usr/lib64/libglib-2.0.so /usr/lib64/libgobject-2.0.so /usr/lib64/libgraphene-1.0.so /usr/lib64/libgtk-4.so /usr/lib64/libharfbuzz.so /usr/lib64/libpango-1.0.so /usr/lib64/libpangocairo-1.0.so /usr/lib64/libvulkan.so
- LINK_ARGS = -Wl,--as-needed -Wl,--no-undefined -Wl,--start-group /usr/lib64/libgtk-4.so /usr/lib64/libpangocairo-1.0.so /usr/lib64/libpango-1.0.so /usr/lib64/libharfbuzz.so /usr/lib64/libgdk_pixbuf-2.0.so /usr/lib64/libcairo-gobject.so /usr/lib64/libcairo.so /usr/lib64/libvulkan.so /usr/lib64/libgraphene-1.0.so /usr/lib64/libgio-2.0.so /usr/lib64/libgobject-2.0.so /usr/lib64/libglib-2.0.so /usr/lib64/libX11.so -Wl,--end-group
+ LINK_ARGS = -Wl,--as-needed -Wl,--no-undefined -Wl,-rpath,/usr/lib64 -Wl,--start-group /usr/lib64/libgtk-4.so /usr/lib64/libpangocairo-1.0.so /usr/lib64/libpango-1.0.so /usr/lib64/libharfbuzz.so /usr/lib64/libgdk_pixbuf-2.0.so /usr/lib64/libcairo-gobject.so /usr/lib64/libcairo.so /usr/lib64/libvulkan.so /usr/lib64/libgraphene-1.0.so /usr/lib64/libgio-2.0.so /usr/lib64/libgobject-2.0.so /usr/lib64/libglib-2.0.so /usr/lib64/libX11.so -Wl,--end-group
 
 # Test rules
 
@@ -99,12 +99,6 @@ build meson-internal__dist: CUSTOM_COMMAND PHONY
  pool = console
 
 # Suffix
-
-build ctags: phony meson-internal__ctags
-
-build meson-internal__ctags: CUSTOM_COMMAND PHONY
- COMMAND = /usr/bin/meson --internal tags ctags /home/clippy/Descargas/neko-void
- pool = console
 
 build uninstall: phony meson-internal__uninstall
 

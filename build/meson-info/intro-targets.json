@@ -3,9 +3,9 @@
     "name": "neko-store",
     "id": "neko-store@exe",
     "type": "executable",
-    "defined_in": "/home/clippy/Descargas/neko-void/meson.build",
+    "defined_in": "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/meson.build",
     "filename": [
-      "/home/clippy/Descargas/neko-void/build/neko-store"
+      "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/build/neko-store"
     ],
     "build_by_default": true,
     "target_sources": [
@@ -16,27 +16,25 @@
           "cc"
         ],
         "parameters": [
-          "-I/home/clippy/Descargas/neko-void/build/neko-store.p",
-          "-I/home/clippy/Descargas/neko-void/build",
-          "-I/home/clippy/Descargas/neko-void",
+          "-I/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/build/neko-store.p",
+          "-I/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/build",
+          "-I/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard",
           "-I/usr/include/gtk-4.0",
           "-I/usr/include/pango-1.0",
-          "-I/usr/include/fribidi",
           "-I/usr/include/harfbuzz",
+          "-I/usr/include/fribidi",
           "-I/usr/include/gdk-pixbuf-2.0",
-          "-I/usr/include/glycin-2",
+          "-I/usr/include/webp",
           "-I/usr/include/cairo",
-          "-I/usr/include/libxml2",
           "-I/usr/include/freetype2",
           "-I/usr/include/libpng16",
           "-I/usr/include/pixman-1",
           "-I/usr/include/graphene-1.0",
           "-I/usr/lib64/graphene-1.0/include",
-          "-I/usr/include/glib-2.0",
-          "-I/usr/lib64/glib-2.0/include",
           "-I/usr/include/libmount",
           "-I/usr/include/blkid",
-          "-I/usr/include/sysprof-6",
+          "-I/usr/include/glib-2.0",
+          "-I/usr/lib64/glib-2.0/include",
           "-fdiagnostics-color=always",
           "-D_FILE_OFFSET_BITS=64",
           "-Wall",
@@ -47,15 +45,14 @@
           "-mfpmath=sse",
           "-msse",
           "-msse2",
-          "-DWITH_GZFILEOP",
           "-pthread"
         ],
         "sources": [
-          "/home/clippy/Descargas/neko-void/src/main.c",
-          "/home/clippy/Descargas/neko-void/src/apps_manager.c",
-          "/home/clippy/Descargas/neko-void/src/installer.c",
-          "/home/clippy/Descargas/neko-void/src/window.c",
-          "/home/clippy/Descargas/neko-void/src/app_card.c"
+          "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/src/main.c",
+          "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/src/apps_manager.c",
+          "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/src/installer.c",
+          "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/src/window.c",
+          "/run/media/javierc/1TERA/neko-void/building/Neko-Void/Neko-Wizard/src/app_card.c"
         ],
         "generated_sources": [],
         "unity_sources": []
@@ -67,6 +64,7 @@
         "parameters": [
           "-Wl,--as-needed",
           "-Wl,--no-undefined",
+          "-Wl,-rpath,/usr/lib64",
           "-Wl,--start-group",
           "-Wl,--start-group",
           "/usr/lib64/libgtk-4.so",
